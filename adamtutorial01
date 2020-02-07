@@ -1,0 +1,39 @@
+word = 'This is a string'
+list(tple)
+tple = (3, 5, 10) # A tuple is just like a list, but it cannot be modified.
+diction = {'words': ['blue', 'happy', 'best'],
+            'ints': [5, 9, 29, 45],
+            'food': 'Chinese',
+            }
+
+    
+def lsttimes5(multilst):
+    print(multilst)
+    new_lst = []
+    for el in multilst:
+        new_lst.append(el*5) #This line adds each element to new_list
+        print(new_lst)
+
+lst = [1,4,9,16,20,'bleaaahh']
+lst2 = [6,2,3]
+lsttimes5(lst)
+lsttimes5(lst2)
+
+# if 'bleaaahh' in lst:
+#     print("Adam is so smart")
+# elif 9 in lst:
+#     print("Adam needs to spend more time in school.")
+# elif 4 in lst:
+#     print('You got close though')
+# else:
+#     print('You just suck')
+
+def howdoesitwork(word1, word2, word3):
+    print(f"I went to the {word1} and bought a {word2} for 3 {word3}.")
+
+howdoesitwork('market', 'chicken', 'potatoes')
+howdoesitwork('bowling alley', 'shoe', 'straws')
+howdoesitwork('shoe', 'bowling alley', 'straws')
+
+
+

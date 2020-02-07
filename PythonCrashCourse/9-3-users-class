@@ -1,0 +1,92 @@
+#Make a class called User . Create two attributes called first_name
+#and last_name , and then create several other attributes that are 
+# typically stored in a user profile. Make a method called 
+# describe_user() that prints a summary 
+# of the user’s information. Make another method called greet_user() 
+# that prints a personalized greeting to the user. Create several 
+# instances representing different users, and call both methods
+# for each user.
+
+class User():
+
+    """The beginnings of a User class"""
+    def __init__(self, first, last, interest, zone):
+        self.firstname = first
+        self.lastname = last
+        self.interest = interest
+        self.zone = zone
+        self.login_attempts = 0
+
+    def describe_user(self):
+        print('{} {} likes {} and lives in {}.'.format(self.firstname, self.lastname, self.interest, self.zone))
+
+    def greet_user(self):
+        print('Welcome to the site, {}!'.format(self.firstname))
+
+    def increment_login_attempts(self):
+        self.login_attempts += 1
+
+    def reset_login_attempts(self):
+        self.login_attempts = 0
+
+me = User('Bo', 'Stevens', 'Skydiving', 'Chicago')
+brother = User('Luke', 'Stevens', 'Acting', 'Franklin')
+
+brother.greet_user()
+me.describe_user()
+
+#9-5. Login Attempts: Add an attribute called login_attempts to your 
+# User class from Exercise 9-3 (page 166). Write a method called 
+# increment_login_attempts() that increments the value of 
+# login_attempts by 1. Write another method called reset_login_attempts()
+#  that resets the value of login_attempts to 0. Make an instance of 
+# the User class and call increment_login_attempts() several times. 
+# Print the value of login_attempts to make sure it was incremented
+# properly, and then call reset_login_attempts() . Print login_attempts
+# again to make sure it was reset to 0.
+
+me.increment_login_attempts()
+me.increment_login_attempts()
+me.increment_login_attempts()
+me.reset_login_attempts()
+
+# 9-7. Admin: An administrator is a special kind of user. Write a class called
+#Admin that inherits from the User class you wrote in Exercise 9-3 (page 166)
+#or Exercise 9-5 (page 171). Add an attribute, privileges , that stores a list
+#of strings like "can add post" , "can delete post" , "can ban user" , and so on.
+#Write a method called show_privileges() that lists the administrator’s set of
+#privileges. Create an instance of Admin , and call your method.
+
+class Privileges():
+    """The privileges granted to admins or other special users"""
+    def __init__(self):
+        self.privileges = ['can add post, can delete post, can ban user']
+
+    def show_privileges(self):
+        for x in self.privileges:
+            print(x)
+
+class Admin(User):
+    """Makes a special Admin user"""
+    def __init__(self, first, last, interest, zone):
+        super().__init__(first, last, interest, zone)
+        self.privileges = Privileges() ####################################
+
+bossman = Admin('Super', 'Johnny', 'computers', 'Ethiopia')
+
+#bossman.show_privileges()
+#bossman.describe_user()
+#bossman.greet_user()
+#bossman.increment_login_attempts()
+#print(bossman.login_attempts)
+
+#9-8. Privileges: Write a separate Privileges class. The class should have one
+#attribute, privileges , that stores a list of strings as described in Exercise 9-7.
+#Move the show_privileges() method to this class. Make a Privileges instance
+#as an attribute in the Admin class. Create a new instance of Admin and use your
+#method to show its privileges.
+
+superboss = Admin('King', 'Manager', 'bossiness', 'Warrant')
+superboss.privileges.show_privileges()
+
+

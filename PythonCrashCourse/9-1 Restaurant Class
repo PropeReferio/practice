@@ -1,0 +1,76 @@
+#Make a class called Restaurant . The __init__() method for
+#Restaurant should store two attributes: a restaurant_name and a 
+# cuisine_type. 
+# Make a method called describe_restaurant() that prints these 
+# two pieces of information, and a method called open_restaurant() 
+# that prints a message indicating that the restaurant is open.
+#Make an instance called restaurant from your class. 
+# Print the two attributes individually, and then call 
+# both methods.
+
+class Restaurant():
+
+    def __init__(self, name, cuisine):
+        self.name = name
+        self.cuisine = cuisine
+        self.number_served = 0
+
+    def describe_restaurant(self):
+        print('Welcome to {}! We specialize in {} food.'.format(self.name.title(),self.cuisine))
+
+    def open_restaurant(self):
+        print('{} is now open! Lucky you!!!'.format(self.name.title()))
+
+    def set_number_served(self, customers):
+        self.number_served = customers
+
+    def increment_number_served(self, customers):
+        self.number_served += customers
+
+
+my_straunt = Restaurant('Smothers', 'greasy diner')
+luke_straunt = Restaurant('drama kings', 'triumphant meals')
+bella_straunt = Restaurant('floor crumbs', "whatever other people don't want")
+my_straunt.describe_restaurant()
+luke_straunt.describe_restaurant()
+bella_straunt.describe_restaurant()
+bella_straunt.number_served = 15
+print(bella_straunt.number_served)
+bella_straunt.increment_number_served(200)
+print(bella_straunt.number_served)
+
+# 9-4. Number Served: Start with your program from Exercise 9-1 
+# (page 166). Add an attribute called number_served with a default 
+# value of 0. Create an instance called restaurant from this class. 
+# Print the number of customers the restaurant has served, and then 
+# change this value and print it again. Add a method called 
+# set_number_served() that lets you set the number of customers that 
+# have been served. Call this method with a new number and print the 
+# value again. Add a method called increment_number_served() that lets 
+# you increment the number of customers who’ve been served. Call this 
+# method with any number you like that could represent how many 
+# customers were served in, say, a day of business.
+
+# 9-6. Ice Cream Stand: An ice cream stand is a specific kind of 
+# restaurant. Write a class called IceCreamStand that inherits from 
+# the Restaurant class you wrote in Exercise 9-1 (page 166) or Exercise 
+# 9-4 (page 171). Either version of the class will work; just pick 
+# the one you like better. Add an attribute called flavors that stores 
+# a list of ice cream flavors. Write a method that displays these 
+# flavors. Create an instance of IceCreamStand , and call this method.
+
+class IceCreamStand(Restaurant):
+
+    def __init__(self, name, cuisine, flavors):
+        super().__init__(name, cuisine)
+        self.flavors = flavors
+
+    def get_menu(self):
+        print('We serve the following:')
+        for x in self.flavors:
+            print(x)
+
+bjs = IceCreamStand("Ben and Jerry's", 'Ice Cream', ['Chocolate', 'Super Fudge', 'Coffee'])
+
+bjs.get_menu()
+bjs.describe_restaurant()
